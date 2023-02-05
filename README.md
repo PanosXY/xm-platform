@@ -6,6 +6,7 @@
 
 ### API Calls
 Once the application is up and database is set up use the below routes to make API calls:
+`
 * GET /v1/health => Check app's health (connectivity with the database)
 example curl:
 curl --location --request GET 'localhost:8080/v1/health'
@@ -48,7 +49,7 @@ curl --location --request PATCH 'localhost:8080/v1/company/489f09c2-9849-482f-90
 --data-raw '{
     "employees": 5,
     "type": "Cooperative"
-}'
+}'`
 
 ### Hints
 * Run `make lint` to run linter on project
