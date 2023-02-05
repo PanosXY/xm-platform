@@ -2,7 +2,7 @@
 
 ### Run & Setup Database
 * In order to run application and database simply run `make compose`.
-* In order to setup the database (database and table with some mock data) simply run `make setupdb`. This should be executed once.
+* In order to setup the database (database and table with some mock data) simply run `make setupdb` (use 'xm123' as password). This should be executed once.
 
 ### API Calls
 Once the application is up and database is set up use the below routes to make API calls:
