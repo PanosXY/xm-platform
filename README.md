@@ -12,7 +12,7 @@ Once the application is up and database is set up use the below routes to make A
 example curl:
 curl --location --request GET 'localhost:8080/v1/health'
 
-* POST /v1/login => Authenticate user
+* POST /v1/login => Authenticate user. Returns a JWT token.
 example curl:
 curl --location --request POST 'localhost:8080/v1/login' \
 --header 'Content-Type: application/json' \
