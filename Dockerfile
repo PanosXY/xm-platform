@@ -4,7 +4,7 @@ FROM golang:latest
 WORKDIR /app
 
 # Download go packages & verify them
-COPY ./src/go.mod ./src/go.sum ./
+COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 
 # Live reload
