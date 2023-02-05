@@ -1,0 +1,9 @@
+{
+    "database": {
+        "max_open_connections": 50,
+        "max_idle_connections": 50,
+        "connection_max_lifetime_secs": 60,
+        "connection_max_idle_time_secs": 60,
+        "connect_timeout_secs": 5
+    }
+}

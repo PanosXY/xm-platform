@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: localdev-xm-service
+    container_name: localdev-xm-service
+    depends_on:
+      - db
+    ports:
+      - ${LOCAL_WEB_PORT:-8080}:${APP_PORT:-8080}
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - xm-platform
+    environment:
+      - APP_ENV=${APP_ENV:-development}
+      - APP_VERSION=${APP_VERSION:-0.1.0}
+      - APP_HOST=${APP_HOST:-}
+      - APP_PORT=${APP_PORT:-8080}
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USER=${DB_USER:-xmadmin}
+      - DB_PASS=${DB_PASS:-xm123}
+      - DB_NAME=${DB_NAME:-xmdb}
+      - DB_SSL=${DB_SSL:-disable}
+
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - POSTGRES_USER=xmadmin
+      - POSTGRES_PASSWORD=xm123
+    networks:
+      - xm-platform
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  xm-platform:
+    name: xm-platform
