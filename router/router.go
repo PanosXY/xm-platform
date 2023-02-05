@@ -13,6 +13,7 @@ import (
 	"github.com/PanosXY/xm-platform/utils/postgres"
 )
 
+// NewRouter returns a new router
 func NewRouter(configuration *config.Configuration, log *logger.Logger, dbClient *postgres.PostgresClient) *chi.Mux {
 	router := chi.NewRouter()
 	router.Use(render.SetContentType(render.ContentTypeJSON))
